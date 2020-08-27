@@ -10,6 +10,9 @@ const schema = buildSchema(`
   type Query {
     user(id: Int!): [User],
     users: [User]
+  },
+  type Mutation {
+    updateUser(id: Int!, name: String!, email: String!): [User]
   }
 `);
 

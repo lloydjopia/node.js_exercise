@@ -45,6 +45,27 @@ var root = {
         }
       }
     });
+  },
+  updateUser: function updateUser(_ref2) {
+    var id, name, email, user;
+    return regeneratorRuntime.async(function updateUser$(_context3) {
+      while (1) {
+        switch (_context3.prev = _context3.next) {
+          case 0:
+            id = _ref2.id, name = _ref2.name, email = _ref2.email;
+            _context3.next = 3;
+            return regeneratorRuntime.awrap(User.GraphqlUpdateUser(id, name, email));
+
+          case 3:
+            user = _context3.sent;
+            return _context3.abrupt("return", user);
+
+          case 5:
+          case "end":
+            return _context3.stop();
+        }
+      }
+    });
   }
 };
 module.exports = root;

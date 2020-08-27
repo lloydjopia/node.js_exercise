@@ -36,8 +36,24 @@ function updateUser(id, name, email, image) {
   });
 }
 
+function GraphqlUpdateUser(id, name, email) {
+  return new Promise(function (resolve, reject) {
+    var sql = "UPDATE user SET uName=?, uEmail=? WHERE uId=?";
+    dbConn.query(sql, [name, email, id], function (err, result) {
+      if (err) {
+        console.log('err', err);
+        resolve(new Error(err.sqlMessage));
+      }
+
+      console.log('result', result);
+      resolve(getUser(id));
+    });
+  });
+}
+
 Object.assign(module.exports, {
   getUsers: getUsers,
   getUser: getUser,
-  updateUser: updateUser
+  updateUser: updateUser,
+  GraphqlUpdateUser: GraphqlUpdateUser
 });

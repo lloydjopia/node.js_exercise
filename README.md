@@ -54,3 +54,58 @@ A form will be available for user input:
 
 ## Navigation
 __Node.js Excersise__ on the top will always redirects the user back to home page.
+
+# API (graphql)
+### __Getting User(s)__
+__Getting all the Users Query:__
+
+```
+{
+  users {
+    uId
+    uName
+    uEmail
+  }
+}
+```
+Can be configured base on what data is needed.
+
+__Getting a specific User Query:__
+
+```
+{
+  user(id: 1) {
+    uId
+    uName
+    uEmail
+  }
+}
+```
+Can be configured base on what data is needed.
+
+
+### __Updating User__
+
+__Mutation format:__
+```
+mutation updateUser($id: Int!, $name: String!, $email: String!) {
+  updateUser(id: $id, name: $name, email: $email) {
+		...userFields
+  }
+}
+
+fragment userFields on User {
+  uId
+  uName
+  uEmail
+}
+```
+
+__Variables:__
+```
+{
+  "id": 1,
+  "name": "sample string",
+  "email": "Sample@email.com"
+}
+```

@@ -10,6 +10,10 @@ const root = {
   user: async ({ id }) => {
     const user = await User.getUser(id);
     return user;
+  },
+  updateUser: async ({ id, name, email }) => {
+    const user = await User.GraphqlUpdateUser(id, name, email);
+    return user;
   }
 };
 
