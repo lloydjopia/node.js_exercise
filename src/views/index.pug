@@ -1,0 +1,114 @@
+extends layout
+block content
+  // Navigation
+  nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top
+    .container
+      a.navbar-brand.js-scroll-trigger(href='/') Node.js Excersise
+      button.navbar-toggler.navbar-toggler-right(type='button' data-toggle='collapse' data-target='#navbarResponsive' aria-controls='navbarResponsive' aria-expanded='false' aria-label='Toggle navigation')
+        | Menu
+        i.fas.fa-bars
+      #navbarResponsive.collapse.navbar-collapse
+        ul.navbar-nav.ml-auto
+          li.nav-item
+            a.nav-link.js-scroll-trigger(href='#about') Exercise Reguirements
+          li.nav-item
+            a.nav-link.js-scroll-trigger(href='#projects') Heroes
+  // Masthead
+  header.masthead
+    .container.d-flex.h-100.align-items-center
+      .mx-auto.text-center
+        h1.mx-auto.my-0.text-uppercase Node.js
+        h2.text-white-50.mx-auto.mt-2.mb-5 This is a dummy output for the index as required.
+  // About
+  section#about.about-section
+    .container
+      .row
+        .col-lg-12.mx-auto
+          h2.text-white.mb-4 Built with The Following Requirements:
+          p.text-white-50
+            | - It must use ES6 features such as async and await.
+            br
+            | - It should use atleast 1 graphql query or mutation.
+            br
+            | - Implement the following pages:
+            br
+            | - Home Page: This will contain a hero image and some dummy content. It will also have a nagivation with links (Users that will redirect to /users)
+            br
+            | - Users: it should display list of users with name, email and photo. Clicking on of the user should go to /users/:id page (see below).
+            br
+            | - User (View): Should display the user info including photo. It also needs to have back button that will take us back to users page. It should also have an update link which will redirect to /users/:id/edit (see below).
+            br
+            | - User (Edit): This should display a form that will edit the user info and be able to upload a photo. There should be a submit button. Once submitted it should update the user information along with new photo (if provided). Finally, it should redirect back to user enpoint (same above).
+            br
+            | - You can use any Express JS templating engine of your choice.
+            br
+            | - It's also recommended to store your user's data via database (but not required) although you can use a memory based database instead.
+            br
+            | - Include unit test in your application.
+            br
+            | - Provide a README.md file and describe how the things work.
+            br
+            | - In your package.json file, use the following script in running the application.
+            br
+            | - npm run dev for development purpose (logging and debugging will be enabled at this point)
+            br
+            | - npm start for production purpose (all debugging should be disabled). You can choose to include npm run build to pack your files for production.
+            br
+  // Projects
+  section#projects.projects-section.bg-light
+    .container
+      // Featured Project Row
+      .row.align-items-center.no-gutters.mb-4.mb-lg-5
+        .col-xl-8.col-lg-7
+          img.img-fluid.mb-3.mb-lg-0(src='images/ironman.png' alt='ironman')
+        .col-xl-4.col-lg-5
+          .featured-text.text-center.text-lg-left
+            h4 Iron-Man
+            p.text-black-50.mb-0
+              | A wealthy American business magnate, playboy, and ingenious scientist, Anthony Edward "Tony" Stark suffers a severe chest injury during a kidnapping. When his captors attempt to force him to build a weapon of mass destruction, he instead creates a mechanized suit of armor to save his life and escape captivity. Later, Stark develops his suit, adding weapons and other technological devices he designed through his company, Stark Industries. He uses the suit and successive versions to protect the world as Iron Man. Although at first concealing his true identity, Stark eventually publicly reveals himself to be Iron Man.
+      // Project One Row
+      .row.justify-content-center.no-gutters.mb-5.mb-lg-0
+        .col-lg-6
+          img.img-fluid(src='images/deadpool.png' alt='deadpool')
+        .col-lg-6
+          .bg-black.text-center.h-100.project
+            .d-flex.h-100
+              .project-text.w-100.my-auto.text-center.text-lg-left
+                h4.text-white Deadpool
+                p.mb-0.text-white-50
+                  | Deadpool is aware that he is a fictional comic book character. He commonly breaks the fourth wall, which is done by few other characters in the Marvel Universe, and this is used to humorous effect.
+                hr.d-none.d-lg-block.mb-0.ml-0
+      // Project Two Row
+      .row.justify-content-center.no-gutters
+        .col-lg-6
+          img.img-fluid(src='images/spidey.png' alt='espayda man')
+        .col-lg-6.order-lg-first
+          .bg-black.text-center.h-100.project
+            .d-flex.h-100
+              .project-text.w-100.my-auto.text-center.text-lg-right
+                h4.text-white Spider-man
+                p.mb-0.text-white-50
+                  | A bite from a radioactive spider triggers mutations in Peter Parker's body, granting him superpowers. Since the original Lee-Ditko stories, Spider-Man has had the ability to cling to walls
+                hr.d-none.d-lg-block.mb-0.mr-0
+  // Contact
+  section.contact-section.bg-black
+    .container
+      .col-md-10.col-lg-8.mx-auto.text-center
+          button.btn.btn-primary.mx-auto(onclick="document.location='users'") Users
+      .social.d-flex.justify-content-center
+        a.mx-2(href='#!')
+          i.fab.fa-twitter
+        a.mx-2(href='#!')
+          i.fab.fa-facebook-f
+        a.mx-2(href='#!')
+          i.fab.fa-github
+  // Footer
+  footer.footer.bg-black.small.text-center.text-white-50
+    .container Copyright &copy; LIGPH: node.js.exercise 2020
+  // Bootstrap core JS
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+  script(src='javascript/bootstrap.bundle.min.js')
+  // Third party plugin JS
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js')
+  // Core theme JS
+  script(src='javascripts/scripts.js')

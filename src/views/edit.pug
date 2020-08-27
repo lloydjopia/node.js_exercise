@@ -1,0 +1,64 @@
+extends layout
+block content
+  nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top
+    .container
+      a.navbar-brand.js-scroll-trigger(href='/') Node.js Excersise
+      button.navbar-toggler.navbar-toggler-right(type='button' data-toggle='collapse' data-target='#navbarResponsive' aria-controls='navbarResponsive' aria-expanded='false' aria-label='Toggle navigation')
+        | Menu
+        i.fas.fa-bars
+  // Masthead
+  header.masthead
+    .container.d-flex.h-100.align-items-center
+      .mx-auto.text-center
+        h1.mx-auto.my-0.text-uppercase Edit User
+        h2.text-white-50.mx-auto.mt-2.mb-5 Edit user information.
+  // Projects
+  section#projects.projects-section.bg-light
+    .container
+        .col-md-10.col-lg-8.mx-auto.text-center
+          -
+            const id = uId;
+            const name = uName;
+            const email = uEmail;
+
+          div(class='profile-tile')
+            -
+              var image = (uImage) ? '/images/profile/' + uId + '/' + uImage : '/images/profile/default.jpg' ;
+
+            div(class='image-form')
+              img(class='img-rounded' src=image alt='image')
+            
+            form(action='/users/' + id + '/edit'  method='post' enctype='multipart/form-data')
+              label(for='uploadImage') Upload Photo:
+              br
+              input#uploadImage.form-control(type='file' name='imageFile')
+              br
+              label(for='inputname') Name:
+              input#inputname.form-control(type='text' name='iName' value=name)
+              br
+              label(for='inputname') Email:
+              input#inputemail.form-control(type='email' name='iEmail' value=email)
+              br
+              if err
+                p(class='form-error')= err
+              button.btn.btn-primary.mx-auto(type='Submit' value='Submit') Submit
+  // Contact
+  section.contact-section.bg-black
+    .container
+      .social.d-flex.justify-content-center
+        a.mx-2(href='#!')
+          i.fab.fa-twitter
+        a.mx-2(href='#!')
+          i.fab.fa-facebook-f
+        a.mx-2(href='#!')
+          i.fab.fa-github
+  // Footer
+  footer.footer.bg-black.small.text-center.text-white-50
+    .container Copyright &copy; LIGPH: node.js.exercise 2020
+  // Bootstrap core JS
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+  script(src='javascript/bootstrap.bundle.min.js')
+  // Third party plugin JS
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js')
+  // Core theme JS
+  script(src='javascripts/scripts.js')
